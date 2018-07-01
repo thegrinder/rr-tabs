@@ -1,0 +1,50 @@
+{
+  "name": "rr-tabs",
+  "version": "0.0.0",
+  "description": "Simple redux Tabs components",
+  "keywords": [
+    "react",
+    "redux"
+  ],
+  "homepage": "https://github.com/thegrinder/rr-tabs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thegrinder/rr-tabs.git"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config config/webpack.dev.babel.js",
+    "production": "NODE_ENV=production webpack -p --config config/webpack.prod.babel.js",
+    "lint": "eslint src/. demo/. config/.; exit 0",
+    "fix": "eslint --fix src/. demo/. config/.; exit 0"
+  },
+  "author": "Pawel Szczepkowski",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.1.2",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "eslint": "^5.0.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "prop-types": "^15.5.10",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-hot-loader": "^4.3.3",
+    "webpack": "^4.14.0"
+  }
+}
