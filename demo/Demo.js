@@ -5,7 +5,7 @@ import { Tabs, Tab, TabContent } from '../src/index';
 class App extends Component {
   render() {
     return (
-      <Tabs>
+      <Tabs namespace="test" initialTab="initial">
         <div>
           <Tab>Tab one</Tab>
           <Tab>Tab two</Tab>
