@@ -1,8 +1,9 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { initializeTabs } from '../../redux/actions';
+import TabsContext from '../../context/tabsContext';
 
 
 class Tabs extends Component {
@@ -10,6 +11,7 @@ class Tabs extends Component {
     children: PropTypes.node.isRequired,
     namespace: PropTypes.string.isRequired,
     initialTab: PropTypes.string.isRequired,
+    onSelect: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
@@ -17,7 +19,12 @@ class Tabs extends Component {
   }
 
   render() {
-    return this.props.children;
+    const { namespace, onSelect, children } = this.props;
+    return (
+      <TabsContext.Provider value={{ namespace, onSelect }}>
+        {children}
+      </TabsContext.Provider>
+    );
   }
 }
 

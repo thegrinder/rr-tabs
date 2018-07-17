@@ -18,5 +18,6 @@ export const removeTabs = namespace => ({
 
 export const setTab = (namespace, tab) => ({
   type: SET_TAB,
+  namespace,
   tab,
 });

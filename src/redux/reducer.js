@@ -21,7 +21,7 @@ export default function tabs(state = {}, action) {
         }), {});
     case SET_TAB:
       return {
-        ...this.state,
+        ...state,
         [action.namespace]: action.tab,
       };
     default:

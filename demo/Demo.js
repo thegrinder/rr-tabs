@@ -3,12 +3,28 @@ import { Tabs, Tab, TabContent } from '../src/index';
 
 
 class App extends Component {
+  handleSelect = (to) => {
+    console.log(to);
+  }
+
   render() {
     return (
-      <Tabs namespace="test" initialTab="initial">
+      <Tabs
+        namespace="test"
+        initialTab="one"
+        onSelect={this.handleSelect}
+      >
         <div>
-          <Tab>Tab one</Tab>
-          <Tab>Tab two</Tab>
+          <Tab to="one">
+            {onSelect => (
+              <button onClick={onSelect}>one</button>
+            )}
+          </Tab>
+          <Tab to="two">
+            {onSelect => (
+              <button onClick={onSelect}>two</button>
+            )}
+          </Tab>
         </div>
         <div>
           <TabContent>Tab one content</TabContent>
