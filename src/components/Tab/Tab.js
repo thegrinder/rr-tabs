@@ -1,30 +1,30 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TabsContext from '../../context/tabsContext';
 import TabInner from './TabInner';
 
 
-class Tab extends PureComponent {
-  static propTypes = {
-    children: PropTypes.func.isRequired,
-    to: PropTypes.string.isRequired,
-  }
+const propTypes = {
+  children: PropTypes.func.isRequired,
+  to: PropTypes.string.isRequired,
+};
 
-  render() {
-    return (
-      <TabsContext.Consumer>
-        {({ namespace, onSelect }) => (
-          <TabInner
-            namespace={namespace}
-            onSelect={onSelect}
-            to={this.props.to}
-          >
-            {onClick => this.props.children(onClick)}
-          </TabInner>
-        )}
-      </TabsContext.Consumer>
-    );
-  }
+function Tab(props) {
+  return (
+    <TabsContext.Consumer>
+      {({ namespace, onSelect }) => (
+        <TabInner
+          namespace={namespace}
+          onSelect={onSelect}
+          to={props.to}
+        >
+          {onClick => props.children(onClick)}
+        </TabInner>
+      )}
+    </TabsContext.Consumer>
+  );
 }
+
+Tab.propTypes = propTypes;
 
 export default Tab;

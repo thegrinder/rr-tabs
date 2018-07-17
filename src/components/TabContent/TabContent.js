@@ -1,26 +1,26 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TabsContext from '../../context/tabsContext';
 
 
-class TabContent extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    for: PropTypes.string.isRequired,
-    tabs: PropTypes.object.isRequired,
-  }
+const propTypes = {
+  children: PropTypes.node.isRequired,
+  for: PropTypes.string.isRequired,
+  tabs: PropTypes.object.isRequired,
+};
 
-  render() {
-    return (
-      <TabsContext.Consumer>
-        {({ namespace }) => (this.props.tabs[namespace] === this.props.for
-          ? this.props.children
-          : null)}
-      </TabsContext.Consumer>
-    );
-  }
+function TabContent(props) {
+  return (
+    <TabsContext.Consumer>
+      {({ namespace }) => (props.tabs[namespace] === props.for
+        ? props.children
+        : null)}
+    </TabsContext.Consumer>
+  );
 }
+
+TabContent.propTypes = propTypes;
 
 const mapDispatchToProps = state => ({ tabs: state.tabs });
 
