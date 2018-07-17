@@ -11,6 +11,7 @@ class TabInner extends Component {
     onSelect: PropTypes.func.isRequired,
     to: PropTypes.string.isRequired,
     setTab: PropTypes.func.isRequired,
+    tabs: PropTypes.object.isRequired,
   }
 
   handleClick = () => {
@@ -18,13 +19,20 @@ class TabInner extends Component {
     this.props.setTab(this.props.namespace, this.props.to);
   }
 
+  isActive = () => this.props.tabs[this.props.namespace] === this.props.to
+
   render() {
-    return this.props.children(this.handleClick);
+    return this.props.children({
+      onClick: this.handleClick,
+      isActive: this.isActive(),
+    });
   }
 }
+
+const mapStateToProps = state => ({ tabs: state.tabs });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   setTab,
 }, dispatch);
 
-export default connect(undefined, mapDispatchToProps)(TabInner);
+export default connect(mapStateToProps, mapDispatchToProps)(TabInner);

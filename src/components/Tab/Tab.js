@@ -14,7 +14,11 @@ class Tab extends PureComponent {
     return (
       <TabsContext.Consumer>
         {({ namespace, onSelect }) => (
-          <TabInner namespace={namespace} onSelect={onSelect} to={this.props.to}>
+          <TabInner
+            namespace={namespace}
+            onSelect={onSelect}
+            to={this.props.to}
+          >
             {onClick => this.props.children(onClick)}
           </TabInner>
         )}
