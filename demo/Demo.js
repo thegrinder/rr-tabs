@@ -17,22 +17,22 @@ class App extends Component {
         <div>
           <Tab to="one">
             {({ onClick, isActive }) => (
-              <button onClick={onClick}>
-                {isActive ? 'active' : 'inactive'}
+              <button onClick={onClick} disabled={isActive}>
+                Tab one
               </button>
             )}
           </Tab>
           <Tab to="two">
             {({ onClick, isActive }) => (
-              <button onClick={onClick}>
-                {isActive ? 'active' : 'inactive'}
+              <button onClick={onClick} disabled={isActive}>
+                Tab two
               </button>
             )}
           </Tab>
         </div>
         <div>
-          <TabContent>Tab one content</TabContent>
-          <TabContent>Tab two content</TabContent>
+          <TabContent for="one">Tab one content</TabContent>
+          <TabContent for="two">Tab two content</TabContent>
         </div>
       </Tabs>
     );
