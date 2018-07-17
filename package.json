@@ -1,10 +1,11 @@
 {
   "name": "rr-tabs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Simple redux Tabs components",
   "keywords": [
     "react",
-    "redux"
+    "redux",
+    "tabs"
   ],
   "homepage": "https://github.com/thegrinder/rr-tabs",
   "repository": {
