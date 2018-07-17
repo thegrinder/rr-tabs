@@ -15,8 +15,10 @@ class TabInner extends Component {
   }
 
   handleClick = () => {
-    this.props.onSelect(this.props.to);
-    this.props.setTab(this.props.namespace, this.props.to);
+    if (!this.isActive()) {
+      this.props.onSelect(this.props.to);
+      this.props.setTab(this.props.namespace, this.props.to);
+    }
   }
 
   isActive = () => this.props.tabs[this.props.namespace] === this.props.to
