@@ -14,6 +14,7 @@ class Tabs extends Component {
     onSelect: PropTypes.func.isRequired,
     initializeTabs: PropTypes.func.isRequired,
     removeTabs: PropTypes.func.isRequired,
+    tabs: PropTypes.object.isRequired,
   }
 
   componentWillMount() {
@@ -25,18 +26,27 @@ class Tabs extends Component {
   }
 
   render() {
-    const { namespace, onSelect, children } = this.props;
+    const {
+      tabs,
+      namespace,
+      onSelect,
+      children,
+    } = this.props;
     return (
       <TabsContext.Provider value={{ namespace, onSelect }}>
-        {children}
+        {tabs[namespace] ? children : null}
       </TabsContext.Provider>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  tabs: state.tabs,
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   initializeTabs,
   removeTabs,
 }, dispatch);
 
-export default connect(undefined, mapDispatchToProps)(Tabs);
+export default connect(mapStateToProps, mapDispatchToProps)(Tabs);
