@@ -17,8 +17,10 @@ class Tabs extends Component {
     tabs: PropTypes.object.isRequired,
   }
 
-  componentWillMount() {
-    this.props.initializeTabs(this.props.namespace, this.props.initialTab);
+  componentDidMount() {
+    const { namespace, initialTab } = this.props;
+    this.props.initializeTabs(namespace, initialTab);
+    this.props.onSelect(initialTab);
   }
 
   componentWillUnmount() {
